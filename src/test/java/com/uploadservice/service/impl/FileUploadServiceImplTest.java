@@ -38,14 +38,12 @@ class FileUploadServiceImplTest {
     private FileUploadServiceImpl fileUploadService;
 
     private String validCsvContent;
-    private String invalidCsvContent;
 
     @BeforeEach
     void setUp() {
         validCsvContent = "1,2023-12-01,Goal1,Achievement1,5,Feedback1\n" +
                           "2,2023-12-02,Goal2,Achievement2,4,Feedback2";
 
-        invalidCsvContent = "1,invalid-date,Goal1,Achievement1,5,Feedback1"; // Invalid date and rating
     }
 
     @Test

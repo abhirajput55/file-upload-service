@@ -40,8 +40,8 @@ public class FileUploadController {
         if (!file.getOriginalFilename().endsWith(".csv")) {
             throw new InvalidFileException("Only CSV files are allowed.");
         }
-        if (file.getSize() > 10 * 1024 * 1024) { // 10MB limit
-            throw new MaxUploadSizeExceededException(10 * 1024 * 1024);
+        if (file.getSize() > 5 * 1024 * 1024) { // 10MB limit
+            throw new MaxUploadSizeExceededException(5 * 1024 * 1024);
         }
         
         logger.info("Received CSV file upload request: {}", file.getOriginalFilename());

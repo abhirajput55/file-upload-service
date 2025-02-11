@@ -75,13 +75,13 @@ class FileUploadControllerTest {
 
     @Test
     void uploadCsv_ExceedsFileSizeLimit_ThrowsInvalidFileException() {
-        byte[] largeFileContent = new byte[11 * 1024 * 1024]; // 11MB file
+        byte[] largeFileContent = new byte[6 * 1024 * 1024]; // 6MB file
         MockMultipartFile largeFile = new MockMultipartFile("file", "large.csv", "text/csv", largeFileContent);
 
         MaxUploadSizeExceededException exception = assertThrows(MaxUploadSizeExceededException.class, () -> {
             fileUploadController.uploadCsv(largeFile);
         });
 
-        assertEquals("Maximum upload size of 10485760 bytes exceeded", exception.getMessage());
+        assertEquals("Maximum upload size of 5242880 bytes exceeded", exception.getMessage());
     }
 }
